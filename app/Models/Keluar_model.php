@@ -14,7 +14,7 @@ class Keluar_model extends Model {
         protected $table = 'barang_keluar';
         protected $primaryKey = 'id_keluar';
         protected $returnType = 'array';
-        protected $allowedFields = ['id_keluar', 'nama_barang', 'tanggal_out', 'jumlah', 'satuan'];
+        protected $allowedFields = ['id_keluar', 'id_barang', 'nama_barang', 'tanggal_out', 'jumlah', 'satuan'];
     
      
 }

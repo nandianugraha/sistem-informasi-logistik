@@ -97,7 +97,9 @@
                                 
                             </div>
                         </div>
-                        
+                       
+                        <a class="btn btn-success" href="<?php echo site_url('barangmasuk/addmasuk'); ?>">Tambah Barang</a>
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -115,12 +117,14 @@
         <th>Satuan</th>
     </tr>
 </thead>
-<?php if(count($masuk_barang) > 0): ?>
+<?php 
+$i=1;
+if(count($masuk_barang) > 0): ?>
     <?php foreach ($masuk_barang as $masukbarang): ?>
 <tbody>
     <tr>
-    
-        <td><?php echo $masukbarang['id_barang'];?></td>
+        
+        <td><?php echo $i;?></td>
         <td><?php echo $masukbarang['nama_barang'];?></td>
         <td><?php echo $masukbarang['tanggal_in'];?></td>
         <td><?php echo $masukbarang['jumlah'];?></td>
@@ -129,7 +133,9 @@
     </tr>
    
 </tbody>
-<?php endforeach; ?>
+<?php 
+$i++;
+endforeach; ?>
 <?php endif; ?>
 </table>
                             </div>

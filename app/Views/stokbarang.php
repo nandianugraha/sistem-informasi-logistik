@@ -108,12 +108,15 @@
                                     <th>Satuan</th>
                                 </tr>
                             </thead>
-                            <?php if(count($stok_barang) > 0): ?>
+
+                            <?php 
+                                $i=1;
+                                if(count($stok_barang) > 0): ?>
                                 <?php foreach ($stok_barang as $stokbarang): ?>
                             <tbody>
                                 <tr>
                                 
-                                    <td><?php echo $stokbarang['id_stok_barang'];?></td>
+                                    <td><?php echo $i;?></td>
                                     <td><?php echo $stokbarang['nama_barang'];?></td>
                                     <td><?php echo $stokbarang['kadaluarsa'];?></td>
                                     <td><?php echo $stokbarang['stok'];?></td>
@@ -122,7 +125,10 @@
                                 </tr>
                                
                             </tbody>
-                            <?php endforeach; ?>
+
+                            <?php 
+                            $i++;
+                            endforeach; ?>
                             <?php endif; ?>
                         </table>
 

@@ -96,6 +96,9 @@
                                 <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>
                             </div>
                         </div>
+                        
+                        <a class="btn btn-success" href="<?php echo site_url('barangkeluar/addkeluar'); ?>">Tambah Barang</a>
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -113,12 +116,14 @@
                                     <th>Satuan</th>
                                 </tr>
                             </thead>
-                            <?php if(count($keluar_barang) > 0): ?>
+                            <?php 
+                            $i=1;
+                            if(count($keluar_barang) > 0): ?>
                                 <?php foreach ($keluar_barang as $keluarbarang): ?>
                             <tbody>
                                 <tr>
                                 
-                                    <td><?php echo $keluarbarang['id_barang'];?></td>
+                                    <td><?php echo $i;?></td>
                                     <td><?php echo $keluarbarang['nama_barang'];?></td>
                                     <td><?php echo $keluarbarang['tanggal_out'];?></td>
                                     <td><?php echo $keluarbarang['jumlah'];?></td>
@@ -127,7 +132,9 @@
                                 </tr>
                                
                             </tbody>
-                            <?php endforeach; ?>
+                            <?php 
+                            $i++;
+                            endforeach; ?>
                <?php endif; ?>
                         </table>
                             </div>

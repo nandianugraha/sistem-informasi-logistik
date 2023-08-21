@@ -14,7 +14,7 @@ class Masuk_model extends Model {
         protected $table = 'barang_masuk';
         protected $primaryKey = 'id_masuk';
         protected $returnType = 'array';
-        protected $allowedFields = ['id_masuk', 'nama_barang', 'tanggal_in', 'jumlah', 'satuan'];
+        protected $allowedFields = ['id_masuk', 'id_barang', 'nama_barang', 'tanggal_in', 'jumlah', 'satuan'];
     
      
 }

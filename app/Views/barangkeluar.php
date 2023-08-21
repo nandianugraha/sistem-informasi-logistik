@@ -6,14 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Charts - SB Admin</title>
+        <title>Charts</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color: #8B0000;">
+            <!-- Navbar Brand-->        
+            <a class="navbar-brand ps-3" href="localhost:8080">
+                <img src="/assets/logo pmi.png" alt="" width="50" height="50" class="d-inline-block align-text-center">
+                Sistem Logistik
+            </a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -23,6 +26,8 @@
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
+
+
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -59,7 +64,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Barang Keluar
                             </a>
-                            <div class="sb-sidenav-menu-heading">Tambahan</div>
+                            
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Laporan
@@ -73,12 +78,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
                 </nav>
             </div>
+
+
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -91,53 +94,47 @@
                             <div class="card-body">
                                 Chart.js is a third party plugin that is used to generate the charts in this template. The charts below have been customized - for further customization options, please visit the official
                                 <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>
-                                .
                             </div>
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-chart-area me-1"></i>
-                                Area Chart Example
+                                <i class="fas fa-table me-1"></i>
+                                Data Barang Keluar
                             </div>
-                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
-                            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
-                                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-pie me-1"></i>
-                                        Pie Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
-                                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                                </div>
+                            <div class="card-body"> 
+                        <table class="table table-bordered">
+
+                            <thead>
+                                <tr>
+                                    <th>Id Barang</th>
+                                    <th>Nama Barang</th>
+                                    <th>Tanggal Keluar</th>
+                                    <th>Jumlah</th>
+                                    <th>Satuan</th>
+                                </tr>
+                            </thead>
+                            <?php if(count($keluar_barang) > 0): ?>
+                                <?php foreach ($keluar_barang as $keluarbarang): ?>
+                            <tbody>
+                                <tr>
+                                
+                                    <td><?php echo $keluarbarang['id_barang'];?></td>
+                                    <td><?php echo $keluarbarang['nama_barang'];?></td>
+                                    <td><?php echo $keluarbarang['tanggal_out'];?></td>
+                                    <td><?php echo $keluarbarang['jumlah'];?></td>
+                                    <td><?php echo $keluarbarang['satuan'];?></td>
+                                
+                                </tr>
+                               
+                            </tbody>
+                            <?php endforeach; ?>
+               <?php endif; ?>
+                        </table>
                             </div>
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

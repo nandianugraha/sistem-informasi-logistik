@@ -16,5 +16,6 @@ class Stok_model extends Model {
         protected $returnType = 'array';
         protected $allowedFields = ['id_stok_barang', 'nama_barang', 'kadaluarsa', 'stok', 'satuan'];
     
+        
      
 }

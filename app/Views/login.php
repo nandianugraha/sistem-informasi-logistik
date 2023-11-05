@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,19 +26,18 @@
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
               <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                <label class="form-label" for="typeEmailX">Email</label>
+                <input type="email" id="Email" class="form-control form-control-lg" />
+                <label class="form-label" for="Email" >Email</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                <label class="form-label" for="typePasswordX">Password</label>
+                <input type="password" id="Password" class="form-control form-control-lg" />
+                <label class="form-label" for="Password">Password</label>
               </div>
 
-              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 
-              <!-- <button class="btn btn-outline-light btn-lg px-5" c href="/" type="submit">Login</button> -->
-              <a class="btn btn-outline-light btn-lg px-5" href="<?php echo site_url('/'); ?>">Login</a>
+              <!-- <button class="btn btn-outline-light btn-lg px-5" href="<?php echo site_url('/home'); ?>" name="login" type="submit">Login</button> -->
+              <a class="btn btn-outline-light btn-lg px-5" href="<?php echo site_url('/home'); ?>">Login</a>
               
             </div>
 
@@ -51,3 +51,4 @@
 </section>
 
 </html>
+

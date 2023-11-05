@@ -10860,7 +10860,7 @@ body {
 }
 
 #layoutSidenav {
-  display: flex;
+  display:flex;
 }
 #layoutSidenav #layoutSidenav_nav {
   flex-basis: 225px;
@@ -10885,8 +10885,8 @@ body {
 }
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
   content: "";
-  display: block;
-  position: absolute;
+  display: flex;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -10894,7 +10894,7 @@ body {
   background: #000;
   z-index: 1037;
   opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacty 0.3s ease-in-out;
 }
 
 @media (min-width: 992px) {

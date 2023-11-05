@@ -9,9 +9,9 @@
 </head>
 <body>
    <form action="<?php echo site_url('barangmasuk/addmasuk'); ?>" method="post">
+   
    <p>Id Barang
-         <input type="text" name="id_barang" placeholder="id barang" required>
-      </p>
+      <input type="text" name="id_barang" placeholder="Id Barang" required>
     <p>Nama Barang
          <input type="text" name="nama_barang" placeholder="Nama Barang" required>
       </p>

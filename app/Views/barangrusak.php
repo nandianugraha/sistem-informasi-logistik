@@ -20,7 +20,7 @@
             Sistem Logistik
         </a>
         <!-- Sidebar Toggle-->
-        <!--<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>-->
+       <!--<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>-->
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
@@ -52,7 +52,7 @@
                             Dashboard
                         </a>
 
-                        <a class="nav-link active" href="/barangmasuk">
+                        <a class="nav-link" href="/barangmasuk">
                             <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                             Barang Masuk
                         </a>
@@ -61,12 +61,12 @@
                             Stok Barang
                         </a>
                         <a class="nav-link" href="/barangkeluar">
-                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></i></div>
                             Barang Keluar
                         </a>
 
-                        <a class="nav-link" href="/barangrusak">
-                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                        <a class="nav-link active" href="/barangrusak">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></i></div>
                             Barang Rusak
                         </a>
 
@@ -83,10 +83,10 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Barang Masuk</h1>
+                    <h1 class="mt-4">Barang Rusak</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="/index">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Barang Masuk</li>
+                        <li class="breadcrumb-item active">Barang Rusak</li>
                     </ol>
 
                     <!-- Button trigger modal -->
@@ -99,11 +99,11 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Barang</h5>
-                                    <button type="button" href="<?php echo site_url('barangmasuk'); ?> class=" btn-close data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Barang</h5>
+                                    <button type="button" href="<?php echo site_url('barangrusak'); ?> class=" btn-close data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="<?php echo site_url('barangmasuk'); ?>" method="post">
+                                    <form action="<?php echo site_url('barangrusak'); ?>" method="post">
 
                                         <label>ID Barang</label>
                                         <br></br>
@@ -114,16 +114,13 @@
 
                                         </select>
                                         <br>
-
-                                        <p>Tanggal Masuk
-                                            <input type="text" name="tanggal_in" placeholder="Tanggal Masuk" required>
+                                        <p>Tanggal Rusak
+                                            <input type="text" name="tanggal_rusak" placeholder="Tanggal rusak" required>
                                         </p>
                                         <p>Jumlah
                                             <input type="text" name="jumlah" placeholder="Jumlah" required>
                                         </p>
-                                        <!-- <p>Satuan
-                                            <input type="text" name="satuan" placeholder="satuan" required>
-                                        </p> -->
+
                                         <button type="submit" class="btn btn-primary">Tambah</button>
                                     </form>
                                 </div>
@@ -140,7 +137,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            Data Barang Masuk
+                            Data Barang Rusak
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered" id="datatablesSimple">
@@ -149,7 +146,7 @@
                                         <th>No</th>
                                         <th>Id Barang</th>
                                         <th>Nama Barang</th>
-                                        <th>Tanggal Masuk</th>
+                                        <th>Tanggal Rusak</th>
                                         <th>Jumlah</th>
                                         <th>Satuan</th>
                                     </tr>
@@ -158,17 +155,17 @@
 
                                 <?php
                                 $i = 1;
-                                if (count($masuk_barang) > 0) : ?>
-                                    <?php foreach ($masuk_barang as $masukbarang) : ?>
+                                if (count($rusak_barang) > 0) : ?>
+                                    <?php foreach ($rusak_barang as $row) : ?>
                                         <tbody>
                                             <tr>
 
                                                 <td><?php echo $i; ?></td>
-                                                <td><?php echo $masukbarang['id_barang']; ?></td>
-                                                <td><?php echo $masukbarang['nama_barang']; ?></td>
-                                                <td><?php echo $masukbarang['tanggal_in']; ?></td>
-                                                <td><?php echo $masukbarang['jumlah']; ?></td>
-                                                <td><?php echo $masukbarang['satuan']; ?></td>
+                                                <td><?php echo $row['id_barang']; ?></td>
+                                                <td><?php echo $row['nama_barang']; ?></td>
+                                                <td><?php echo $row['tanggal_rusak']; ?></td>
+                                                <td><?php echo $row['jumlah']; ?></td>
+                                                <td><?php echo $row['satuan']; ?></td>
 
                                             </tr>
                                         </tbody>

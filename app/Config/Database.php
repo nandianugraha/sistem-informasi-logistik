@@ -29,7 +29,7 @@ class Database extends Config
         'hostname' => '127.0.0.1',
         'username' => 'root',
         'password' => '',
-        'database' => 'logistik_pmi',
+        'database' => 'db_logistik_pmi',
         'DBDriver' => 'MYSQLi',
         'DBPrefix' => '',
         'pConnect' => false,
@@ -78,8 +78,8 @@ class Database extends Config
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that
         // we don't overwrite live data on accident.
-        if (ENVIRONMENT === 'testing') {
-            $this->defaultGroup = 'tests';
+        if (ENVIRONMENT === 'default') {
+            $this->defaultGroup = 'default';
         }
     }
 }

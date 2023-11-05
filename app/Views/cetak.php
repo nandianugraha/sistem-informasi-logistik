@@ -39,8 +39,6 @@
             </li>
         </ul>
     </nav>
-
-
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -51,8 +49,8 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                             Dashboard
                         </a>
-
-                        <a class="nav-link active" href="/barangmasuk">
+                        
+                        <a class="nav-link" href="/barangmasuk">
                             <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                             Barang Masuk
                         </a>
@@ -61,16 +59,16 @@
                             Stok Barang
                         </a>
                         <a class="nav-link" href="/barangkeluar">
-                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></i></div>
                             Barang Keluar
                         </a>
 
                         <a class="nav-link" href="/barangrusak">
-                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></i></div>
                             Barang Rusak
                         </a>
 
-                        <a class="nav-link" href="/laporan">
+                        <a class="nav-link active" href="/laporan">
                             <div class="sb-nav-link-icon"><i class="far fa-folder-open"></i></div>
                             Laporan
                         </a>
@@ -79,68 +77,21 @@
             </nav>
         </div>
 
-
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Barang Masuk</h1>
+                    <h1 class="mt-4">Report</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="/index">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Barang Masuk</li>
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Report</li>
                     </ol>
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Tambah Barang
-                    </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Barang</h5>
-                                    <button type="button" href="<?php echo site_url('barangmasuk'); ?> class=" btn-close data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="<?php echo site_url('barangmasuk'); ?>" method="post">
-
-                                        <label>ID Barang</label>
-                                        <br></br>
-                                        <select class="form-control" name="id_barang">
-                                            <?php foreach ($stok as $l) { ?>
-                                                <option value="<?php echo $l['id_stok_barang']; ?>"><?php echo $l['id_stok_barang']; ?> <?php echo $l['nama_barang']; ?> </option>
-                                            <?php } ?>
-
-                                        </select>
-                                        <br>
-
-                                        <p>Tanggal Masuk
-                                            <input type="text" name="tanggal_in" placeholder="Tanggal Masuk" required>
-                                        </p>
-                                        <p>Jumlah
-                                            <input type="text" name="jumlah" placeholder="Jumlah" required>
-                                        </p>
-                                        <!-- <p>Satuan
-                                            <input type="text" name="satuan" placeholder="satuan" required>
-                                        </p> -->
-                                        <button type="submit" class="btn btn-primary">Tambah</button>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <br><br>
 
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            Data Barang Masuk
+                            Data Report
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered" id="datatablesSimple">
@@ -150,6 +101,8 @@
                                         <th>Id Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Tanggal Masuk</th>
+                                        <th>Tanggal Keluar</th>
+                                        <th>Tanggal Rusak</th>
                                         <th>Jumlah</th>
                                         <th>Satuan</th>
                                     </tr>
@@ -158,17 +111,19 @@
 
                                 <?php
                                 $i = 1;
-                                if (count($masuk_barang) > 0) : ?>
-                                    <?php foreach ($masuk_barang as $masukbarang) : ?>
+                                if (count($report_barang) > 0) : ?>
+                                    <?php foreach ($report_barang as $row) : ?>
                                         <tbody>
                                             <tr>
 
                                                 <td><?php echo $i; ?></td>
-                                                <td><?php echo $masukbarang['id_barang']; ?></td>
-                                                <td><?php echo $masukbarang['nama_barang']; ?></td>
-                                                <td><?php echo $masukbarang['tanggal_in']; ?></td>
-                                                <td><?php echo $masukbarang['jumlah']; ?></td>
-                                                <td><?php echo $masukbarang['satuan']; ?></td>
+                                                <td><?php echo $row['id_barang']; ?></td>
+                                                <td><?php echo $row['nama_barang']; ?></td>
+                                                <td><?php echo $row['tanggal_in']; ?></td>
+                                                <td><?php echo $row['tanggal_out']; ?></td>
+                                                <td><?php echo $row['tanggal_rusak']; ?></td>
+                                                <td><?php echo $row['jumlah']; ?></td>
+                                                <td><?php echo $row['satuan']; ?></td>
 
                                             </tr>
                                         </tbody>
@@ -192,18 +147,19 @@
                                 </ul>
                             </nav>
                         </div>
+                    
                     </div>
+
+                <script type="text/javascript">
+                    window.print();
+                </script>
+
                 </div>
             </main>
 
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="assets/demo/chart-pie-demo.js"></script>
+    </nav>
 </body>
 
 </html>
